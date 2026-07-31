@@ -1,0 +1,6 @@
+{
+  "name": "Sales Tracker",
+  "description": "An offline-capable Progressive Web App (PWA) to track sales and profits, built with Vanilla JS, HTML, and CSS, supporting English and Kurdish.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
