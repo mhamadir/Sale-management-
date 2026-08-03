@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sales-tracker-v1';
+const CACHE_NAME = 'sales-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -15,17 +15,16 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
